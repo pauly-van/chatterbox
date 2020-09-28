@@ -21,9 +21,12 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
-
+      // append to chat id in html file
+     
       callback();
-    });
+
+    }
+    );
   },
 
   startSpinner: function() {
