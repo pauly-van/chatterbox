@@ -4,13 +4,17 @@ var Parse = {
 
   create: function(message, successCB, errorCB = null) {
     $.ajax({
-      url: server,
+      // This is the url you should use to communicate with the parse API server.
+      url: Parse.server,
       type: 'POST',
-      data: JSON.stringify(message),
+      data: { text: message, username: 'AP', roomname: 'lobby'},
       contentType: 'application/json',
-      success: successCB,
-      error: errorCB || function(error){
-        console.log('chatterbox: Failed to send messages', data);
+      success: function (data) {
+        console.log('chatterbox: Message sent');
+      },
+      error: function (data) {
+        // See: https://developer.mozilla.org/en-US/docs/Web/API/console.error
+        console.error('chatterbox: Failed to send message', data);
       }
     });
   },
