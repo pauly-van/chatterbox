@@ -8,7 +8,7 @@ var Parse = {
       // This is the url you should use to communicate with the parse API server.
       url: Parse.server,
       type: 'POST',
-      data: { text: message, username: 'AP', roomname: 'lobby'},
+      data: JSON.stringify(message),
       contentType: 'application/json',
       success: function (data) {
         console.log('chatterbox: Message sent');
