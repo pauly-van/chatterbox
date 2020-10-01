@@ -1,5 +1,5 @@
 var Messages = {
-  username: window.location.search.substr(10), 
+  username: window.location.search.substring(10), 
   text: '',
-  roomname: 'lobby'
+  roomname: Rooms.standup
 };
