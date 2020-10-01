@@ -5,7 +5,14 @@ var RoomsView = {
   roomName: '',
 
   initialize: function() {
-    RoomsView.renderRoom(Rooms.lobby);
+    Parse.readAll((i)=>i.results.forEach(item=>Rooms[item.roomname]=item.roomname));
+    // for(let key in Rooms){
+    //   console.log('il');
+    //   if(Rooms[key]===undefined || Rooms[key]===""){
+    //     continue;
+    //   }
+    //   RoomsView.renderRoom(Rooms[key]);
+    // }
     RoomsView.renderRoom(Rooms.standup);
   },
 
