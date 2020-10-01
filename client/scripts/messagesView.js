@@ -7,9 +7,7 @@ var MessagesView = {
   },
 
   render: function() {
-    // get access to data object
-    // using jQuery target the DOM elment class 'chat'
-
+    MessagesView.$chats.append(MessageView.render());
   }
 
 };
