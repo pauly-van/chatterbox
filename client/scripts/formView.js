@@ -2,6 +2,7 @@ var FormView = {
 
   $form: $('form'),
 
+
   initialize: function() {
     FormView.$form.on('submit', FormView.handleSubmit);
   },
@@ -9,7 +10,7 @@ var FormView = {
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
     event.preventDefault();
-    var msg = FormView.$form.find('input[type=text]').val();
+    Messages.text = $('#message').val();
     Parse.create(Messages);
   },
 

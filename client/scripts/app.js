@@ -21,7 +21,6 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
-      MessageView.lastUsername = data.results[0].username;
       // append to chat id in html file
      
       callback();
