@@ -5,15 +5,17 @@ var RoomsView = {
   roomName: '',
 
   initialize: function() {
-    Parse.readAll((i)=>i.results.forEach(item=>Rooms[item.roomname]=item.roomname));
-    // for(let key in Rooms){
-    //   console.log('il');
-    //   if(Rooms[key]===undefined || Rooms[key]===""){
-    //     continue;
-    //   }
-    //   RoomsView.renderRoom(Rooms[key]);
-    // }
-    RoomsView.renderRoom(Rooms.standup);
+    Parse.readAll((i)=>i.results.forEach(item=>Rooms[item.roomname] = item.roomname));
+    for (let key in Rooms) {
+      console.log(key);
+      if (Rooms[key] === undefined || Rooms[key] === '') {
+        continue;
+      }
+      RoomsView.renderRoom(Rooms[key]);
+    }
+    // needs to add to server? or add to Rooms.js
+    RoomsView.roomName = $('#messages').val();
+    $('.addroom').on('click', ()=>$('#rooms select').append(`<option value = ${RoomsView.roomName}></options>`));
   },
 
   template: _.template(
