@@ -10,7 +10,8 @@ var FormView = {
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
     event.preventDefault();
-    Messages.text = $('#message').val();
+    Messages.text = $('#message').val(); // assignes message text to our message object
+    Messages.roomname = $('#rooms select').val(); //assigns current room from dropdown
     Parse.create(Messages);
   },
 

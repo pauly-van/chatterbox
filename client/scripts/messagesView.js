@@ -9,7 +9,6 @@ var MessagesView = {
   },
 
   render: function() {
-    Parse.readAll((dta)=> MessagesView.lastMsgId = dta.results[0].objectId);
     setInterval(()=>{
       Parse.readAll((data)=>{
         MessagesView.nextMsgID = data.results[0].objectId;
@@ -17,13 +16,13 @@ var MessagesView = {
         MessageView.text = data.results[0].text;
       });
       if (MessagesView.lastMsgID !== MessagesView.nextMsgID) {
-        MessagesView.$chats.append(MessageView.render());
+        MessagesView.$chats.prepend(MessageView.render());
         MessagesView.lastMsgID = MessagesView.nextMsgID;
       }
     }, 1000);
   },
 
   renderMessage: function() {
-    MessagesView.$chats.append(MessageView.render());
+    MessagesView.$chats.prepend(MessageView.render());
   }
 };
