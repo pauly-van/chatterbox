@@ -3,6 +3,7 @@ var MessagesView = {
   $chats: $('#chats'),
   previousId: '',
   nextId: '',
+  roomname: '',
 
   initialize: function() {
     MessagesView.render();
@@ -14,9 +15,10 @@ var MessagesView = {
         MessagesView.nextMsgID = data.results[0].objectId;
         MessageView.lastUsername = data.results[0].username;
         MessageView.text = data.results[0].text;
+        MessagesView.roomname = data.results[0].roomname;
       });
       if (MessagesView.lastMsgID !== MessagesView.nextMsgID) {
-        MessagesView.$chats.prepend(MessageView.render());
+        $(`#chats .${MessagesView.roomname}`).prepend(MessageView.render());
         MessagesView.lastMsgID = MessagesView.nextMsgID;
       }
     }, 1000);
