@@ -3,6 +3,10 @@ var Parse = {
   server: `http://parse.${window.CAMPUS}.hackreactor.com/chatterbox/classes/messages`,
 
   create: function(message, successCB, errorCB = null) {
+<<<<<<< HEAD
+=======
+    // todo: save a message to the server
+>>>>>>> 8000486d25aa78747f7d042f4cb3a4bef0314298
     $.ajax({
       // This is the url you should use to communicate with the parse API server.
       url: Parse.server,
