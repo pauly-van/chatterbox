@@ -16,9 +16,12 @@ var RoomsView = {
       RoomsView.renderRoom(RoomsView.roomName); // adds to dropdown options
     });
 
+    $('#chats').children().hide();
+    RoomsView.roomShow = $('#rooms select').val();
+    $(`#chats .${RoomsView.roomShow}`).show();
+
     // create event handler for select option change
     $('#rooms select').change(() =>{
-      $('#chats').children().hide();
       RoomsView.roomShow = $('#rooms select').val();
       $(`#chats .${RoomsView.roomShow}`).show();
     });
